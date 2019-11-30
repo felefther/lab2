@@ -21,19 +21,19 @@
 **1.**  
 Σύμφωνα με το αρχείο **options.py** το υποσύστημα μνήμης του επεξεργαστή που εξομοιώνεται θα έχει τις παρακάτω τιμές:
 
-[system]
+[system]  
 cache_line_size=64
 
-[system.cpu.dcache]
-assoc=2
+[system.cpu.dcache]  
+assoc=2  
 size=65536
 
-[system.cpu.icache]
-assoc=2
+[system.cpu.icache]  
+assoc=2  
 size=32768
 
-[system.l2]
-assoc=8
+[system.l2]  
+assoc=8  
 size=2097152
 ~~~
    Cache Options
