@@ -35,8 +35,8 @@ size=32768
 [system.l2]
 assoc=8
 size=2097152
-
-  Cache Options
+~~~
+   Cache Options
     parser.add_option("--l1d_size", type="string", default="64kB")
     parser.add_option("--l1i_size", type="string", default="32kB")
     parser.add_option("--l2_size", type="string", default="2MB")
@@ -44,7 +44,7 @@ size=2097152
     parser.add_option("--l1i_assoc", type="int", default=2)
     parser.add_option("--l2_assoc", type="int", default=8)
     parser.add_option("--cacheline_size", type="int", default=64)
-
+~~~
 
 **2.**  
 Εκτελώντας τις προσομοιώσεις για τα 5 benchmarks παίρνουμε τα παρακάτω αποτελέσματα, τα οποία φαίνονται στα αρχεία **stats.txt**:
@@ -99,11 +99,13 @@ system.l2.overall_miss_rate::total           0.99972                       # mis
 
 
 **3.**  
-Τρέχοντας ξανά όλα τα benchmarks με την παράμετρο --cpu-clock=2GHz παρατηρούμε ότι ο χρόνος εκτέλεσης πέφτει στο μισό.Το system clock παρέμεινε στα 1GHz
+Τρέχοντας ξανά όλα τα benchmarks με την παράμετρο --cpu-clock=2GHz παρατηρούμε τα εξής:  
+Η παράμετρος **system.clk_domain.clock** παραμένει στα 1000 ticks, δηλαδή το system clock παρέμεινε στα 1GHz, αναμενόμενο καθώς δεν ζητήσαμε να αλλάξει.Ωστόσο το **system.cpu_clk_domain.clock** άλλαξε όντως στα 500 ticks, δηλαδη τo cpu clock έγινε 2 Ghz.Όλα τα στοιχεία της μητρικής πλακέτας χρονίζονται στα 1GHz,ενώ η cpu στα 2GHz.Σε όλα τα benchmarks βλέπουμε βελτίωση της απόδοσης, ο χρόνος εκτέλεσης μειώνεται στο μισό.Το ρολόι της cpu θέλουμε σε γενικές γραμμλες να είναι μεγαλύτερο απ της μητρικής καθώς πρέπει να εκτελεί περισσότερες λειτουργίες.
 
 
 
-----The system clock is needed to synchronize all components on the motherboard, which means they all do their work only if the clock is high; never when it's low. And because the clock speed is set above the longest time any signal needs to propagate through any circuit on the board, this system is preventing signals from arriving before other signals are ready and thus keeps everything safe and synchronized. The CPU clock has the same purpose, but is only used on the chip itself. Because the CPU needs to perform more operations per time than the motherboard, the CPU clock is much higher. And because we don't want to have another oscillator (e.g. because they also would need to be synchronized), the CPU just takes the system clock and multiplies it by a number, which is either fixed or unlocked (in that case the user can change the multiplier in order to over- or underclock the CPU). -----
+
+
 
 
 
