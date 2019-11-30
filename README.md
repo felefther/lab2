@@ -1,22 +1,22 @@
-#Αρχιτεκτονική Υπολογιστών 7ο Εξάμηνο
+# Αρχιτεκτονική Υπολογιστών 7ο Εξάμηνο
 
-##Κυπαρίσσης Οδυσσέας ΑΕΜ : 8955
+## Κυπαρίσσης Οδυσσέας ΑΕΜ : 8955
 
-##Φατόλας Ελευθέριος ΑΕΜ : 8958
+## Φατόλας Ελευθέριος ΑΕΜ : 8958
 
-##Ομάδα 24
+## Ομάδα 24
 
-##Αριστοτέλειο Πανεπιστήμιο Θεσσαλονίκης
+## Αριστοτέλειο Πανεπιστήμιο Θεσσαλονίκης
 
-##Τμήμα Ηλεκτρολόγων Μηχανικών και Μηχανικών Υπολογιστών
-
-
-
-##2η Εργαστηριακή Άσκηση
+## Τμήμα Ηλεκτρολόγων Μηχανικών και Μηχανικών Υπολογιστών
 
 
 
-###**Βήμα 1**
+## 2η Εργαστηριακή Άσκηση
+
+
+
+### **Βήμα 1**
 
 **1.**
 Σύμφωνα με το αρχείο **options.py** το υποσύστημα μνήμης του επεξεργαστή που εξομοιώνεται θα έχει τις παρακάτω τιμές:
@@ -50,48 +50,48 @@ size=2097152
 Εκτελώντας τις προσομοιώσεις για τα 5 benchmarks παίρνουμε τα παρακάτω αποτελέσματα, τα οποία φαίνονται στα αρχεία **stats.txt**:
 
 Για το **specbzip** έχουμε:
-
+~~~
 sim_seconds                                  0.161025                       # Number of seconds simulated
 system.cpu.cpi                               1.610247                       # CPI: cycles per instruction
 system.cpu.icache.overall_miss_rate::total     0.000077                       # miss rate for overall accesses
 system.cpu.dcache.overall_miss_rate::total     0.014675                       # miss rate for overall accesses
 system.l2.overall_miss_rate::total           0.282157                       # miss rate for overall accesses
-
+~~~
 
 Για το **spechmmer** έχουμε:
-
+~~~
 sim_seconds                                  0.11853                       # Number of seconds simulated
 system.cpu.cpi                               1.185304                       # CPI: cycles per instruction
 system.cpu.icache.overall_miss_rate::total     0.000221                       # miss rate for overall accesses
 system.cpu.dcache.overall_miss_rate::total     0.001629                       # miss rate for overall accesses
 system.l2.overall_miss_rate::total           0.077747                       # miss rate for overall accesses
-
+~~~
 
 Για το **speclibm** έχουμε:
-
+~~~
 sim_seconds                                  0.262327                       # Number of seconds simulated
 system.cpu.cpi                               2.623265                       # CPI: cycles per instruction
 system.cpu.icache.overall_miss_rate::total     0.000094                       # miss rate for overall accesses
 system.cpu.dcache.overall_miss_rate::total     0.060971                       # miss rate for overall accesses
 system.l2.overall_miss_rate::total           0.999944                       # miss rate for overall accesses
-
+~~~
 
 Για το **specmcf** έχουμε:
-
+~~~
 sim_seconds                                  0.127942                       # Number of seconds simulated
 system.cpu.cpi                               1.279422                       # CPI: cycles per instruction
 system.cpu.icache.overall_miss_rate::total     0.023627                       # miss rate for overall accesses
 system.cpu.dcache.overall_miss_rate::total     0.002108                       # miss rate for overall accesses
 system.l2.overall_miss_rate::total           0.055046                       # miss rate for overall accesses
-
+~~~
 Για το **specsjeng** έχουμε:
-
+~~~
 sim_seconds                                  0.704056                       # Number of seconds simulated
 system.cpu.cpi                               7.040561                       # CPI: cycles per instruction
 system.cpu.icache.overall_miss_rate::total     0.000020                       # miss rate for overall accesses
 system.cpu.dcache.overall_miss_rate::total     0.121831                       # miss rate for overall accesses
 system.l2.overall_miss_rate::total           0.99972                       # miss rate for overall accesses
-
+~~~
 
 ---GRAPHS---
 
