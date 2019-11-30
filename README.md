@@ -93,7 +93,12 @@ system.cpu.dcache.overall_miss_rate::total     0.121831                       # 
 system.l2.overall_miss_rate::total           0.99972                       # miss rate for overall accesses
 ~~~
 
----GRAPHS---
+![sim_sec](https://github.com/felefther/lab2/blob/master/sim_sec.png)
+![cpi_graph](https://github.com/felefther/lab2/blob/master/cpi.png)
+![dcache](https://github.com/felefther/lab2/blob/master/dcache.png)
+![icache](https://github.com/felefther/lab2/blob/master/icache.png)
+![l2](https://github.com/felefther/lab2/blob/master/l2.png)
+
 
 Από τα αποτελέσματα παρατηρούμε καταρχάς ότι σε όλα τα benchmarks το cpi είναι δεκαπλάσιο του χρόνου εκτέλεσης, το οποίο ισχύει καθώς **ο χρόνος εκτέλεσης = cpi * αριθμό εντολών / συχνότητα**.Ακόμα βλέπουμε ότι στα benchmarks με υψηλό cpi έχουμε και μεγαλύτερο total miss rate στην dcache και στην l2.Αντίθετα υψηλό total miss rate στην icache έχουμε μόνο στο specmcf.
 
