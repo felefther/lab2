@@ -18,7 +18,7 @@
 
 ### **Βήμα 1**
 
-**1.**
+**1.**  
 Σύμφωνα με το αρχείο **options.py** το υποσύστημα μνήμης του επεξεργαστή που εξομοιώνεται θα έχει τις παρακάτω τιμές:
 
 [system]
@@ -36,7 +36,7 @@ size=32768
 assoc=8
 size=2097152
 
- # Cache Options
+  Cache Options
     parser.add_option("--l1d_size", type="string", default="64kB")
     parser.add_option("--l1i_size", type="string", default="32kB")
     parser.add_option("--l2_size", type="string", default="2MB")
@@ -46,7 +46,7 @@ size=2097152
     parser.add_option("--cacheline_size", type="int", default=64)
 
 
-**2.**
+**2.**  
 Εκτελώντας τις προσομοιώσεις για τα 5 benchmarks παίρνουμε τα παρακάτω αποτελέσματα, τα οποία φαίνονται στα αρχεία **stats.txt**:
 
 Για το **specbzip** έχουμε:
@@ -98,7 +98,7 @@ system.l2.overall_miss_rate::total           0.99972                       # mis
 Από τα αποτελέσματα παρατηρούμε καταρχάς ότι σε όλα τα benchmarks το cpi είναι δεκαπλάσιο του χρόνου εκτέλεσης, το οποίο ισχύει καθώς **ο χρόνος εκτέλεσης = cpi * αριθμό εντολών / συχνότητα**.Ακόμα βλέπουμε ότι στα benchmarks με υψηλό cpi έχουμε και μεγαλύτερο total miss rate στην dcache και στην l2.Αντίθετα υψηλό total miss rate στην icache έχουμε μόνο στο specmcf.
 
 
-**3.**
+**3.**  
 Τρέχοντας ξανά όλα τα benchmarks με την παράμετρο --cpu-clock=2GHz παρατηρούμε ότι ο χρόνος εκτέλεσης πέφτει στο μισό.Το system clock παρέμεινε στα 1GHz
 
 
