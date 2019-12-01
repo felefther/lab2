@@ -108,9 +108,22 @@ system.l2.overall_miss_rate::total           0.99972                       # mis
 Η παράμετρος **system.clk_domain.clock** παραμένει στα 1000 ticks, δηλαδή το system clock παρέμεινε στα 1GHz, αναμενόμενο καθώς δεν ζητήσαμε να αλλάξει.Ωστόσο το **system.cpu_clk_domain.clock** άλλαξε όντως στα 500 ticks, δηλαδη τo cpu clock έγινε 2 Ghz.Όλα τα στοιχεία της μητρικής πλακέτας χρονίζονται στα 1GHz,ενώ η cpu στα 2GHz.Σε όλα τα benchmarks βλέπουμε βελτίωση της απόδοσης, ο χρόνος εκτέλεσης μειώνεται στο μισό.Το ρολόι της cpu θέλουμε σε γενικές γραμμλες να είναι μεγαλύτερο απ της μητρικής καθώς πρέπει να εκτελεί περισσότερες λειτουργίες.
 
 
+### **Βήμα 2**
+
+Σε αυτό το σημείο προσπαθούμε να μειώσουμε την τιμή του **cpi** σε κάθε benchmark.Αυτό το καταφέρνουμε επιλέγοντας διαφορετικές τιμές για το μέγεθος των **l1 και l2 cache**,το **associativity** μεταξύ τους αλλά και το **cache line size**.Αντίθετα κρατάμε σταθερές παραμέτρους όπως η συχνότητα, ο τύπος του επεξεργαστή που χρησιμοποιούμε (εδώ έχουμε minorCPU) και ο αριθμός των εντολών που θέλουμε να τρέξει, έτσι ώστε να δούμε με ποιές τιμές του υποσυστήματος μνλημης επιτυγχάνουμε μέγιστη απόδοση.  
+Τρέχοντας για παράδειγμα την παρακάτω εντολή για το benchmark **speclibm** δίνουμε τις τιμές:  
+* L1 instruction cache size = 64 κΒ
+* L1 instruction cache associativity = 1
+* L1 data cache size = 32 κΒ
+* L1 data cache associativity = 1
+* L2 cache size = 512 κΒ
+* L2 cache associativity = 2
+* Μέγεθος cache line 64 κΒ
 
 
-
+~~~
+./build/ARM/gem5.opt -d spec_results/speclibm configs/example/se.py --cpu- type=MinorCPU --caches --l2cache --l1d_size=32kB --l1i_size=64kB --l2_size=512kB --l1i_assoc=1 --l1d_assoc=1 --l2_assoc=2 --cacheline_size=64 --cpu-clock=1GHz -c spec_cpu2006/470.lbm/src/speclibm -o "20 spec_cpu2006/470.lbm/data/lbm.in 0 1 spec_cpu2006/470.lbm/data/100_100_130_cf_a.of" -I 100000000
+~~~
 
 
 
