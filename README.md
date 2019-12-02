@@ -58,7 +58,7 @@ system.cpu.dcache.overall_miss_rate::total     0.014675                       # 
 system.l2.overall_miss_rate::total           0.282157                       # miss rate for overall accesses
 ~~~
 
-Για το **spechmmer** έχουμε:
+Για το **spechmmer** έχουμε:------------------------
 ~~~
 sim_seconds                                  0.11853                       # Number of seconds simulated
 system.cpu.cpi                               1.185304                       # CPI: cycles per instruction
@@ -147,14 +147,53 @@ system.l2.overall_miss_rate::total           0.99972                       # mis
 
 Βλέπουμε ότι παρόλο που το cpi μειώθηκε έχουμε αύξηση του l2 miss rate.Οι αλλαγές στα miss rate των icache, dcache είναι αρκετά μικρές.Συμπεραίνουμε ότι στο συγκεκριμένο benchmark χρειάζεται μεγάλη l2, τουλάχιστον 2 MB όπως φαίνεται και στα αποτελέσματα των  δοκιμών.  
 
-----INSERT RESULTS----
+----INSERT RESULTS.txt IMAGE----
 
-Στα γραφήματα που ακολουθούν βλέπουμε και το συσχετισμό μεταξύ l2 cache size - cpi.Επιλέξαμε τον συγκεκριμένο παράγοντα γιατί παρατηρήσαμε ότι η δική του αυξομείωση επηρεάζει περισσότερο το cpi.
-
-
+Στα γραφήματα που ακολουθούν βλέπουμε και το συσχετισμό μεταξύ l2 cache size - cpi.Επιλέξαμε τον συγκεκριμένο παράγοντα γιατί παρατηρήσαμε ότι η δική του αυξομείωση επηρεάζει περισσότερο το cpi.Οι υπόλοιπες μεταβλητές είναι σταθερές με τις τιμές που αναφέραμε παραπάνω.
 
 
 
+-----INSERT GRAPH----
 
 
+Για το benchmark **specblibm** παρατηρήσαμε ότι οι αλλαγές που δοκιμάσαμε στους παράγοντες δεν επηρεάζουν αρκετά το **CPI**.Η καλύτερη τιμή που πήραμε ήταν το 2.58, ενώ στις default τιμές είχαμε 2.62.Ωστόσο φαίνεται πως το μέγεθος της **l2** είναι αυτό που το επηρεάζει περισσότερο.Συγκεκριμένα μειώνοντάς το έχουμε και μικρότερο/καλύτερο cpi.  
+Tα στοιχεία του υποσυστήματος μνήμης είχαν τις παρακάτω τιμές:  
+* L1 instruction cache size = 16 κΒ
+* L1 instruction cache associativity = 8
+* L1 data cache size = 32 κΒ
+* L1 data cache associativity = 8
+* L2 cache size = 64 kΒ
+* L2 cache associativity = 8
+* cache line size = 64 κΒ
 
+----INSERT RESULTS.txt IMAGE----
+
+Εδώ βλέπουμε τα αποτελέσματα όλων των δοκιμών, όπου φαίνεται καλύτερα ότι οι διαφορές είναι πολύ μικρές σε κάθε αλλαγή.
+
+Διατηρώντας σταθερούς όλους τους παράγοντες εκτός του l2 cache size παίρνουμε το παρακάτω γράφημα:
+Οι τιμές τους είναι:  
+* L1 instruction cache size = 32 κΒ
+* L1 instruction cache associativity = 8
+* L1 data cache size = 64 κΒ
+* L1 data cache associativity = 8
+* L2 cache associativity = 8
+* cache line size = 64 κΒ
+
+-----INSERT GRAPH----
+
+Στην περίπτωση του benchmark **specmcf** τα αποτελέσματα είναι από την αρχή πολύ καλά, δηλαδή το **cpi** είναι χαμηλό στο 1.27 και με τις default τιμές.Και σε αυτήν την περίπτωση τα μεγέθη των l1 μένουν χαμηλά και δεν επηρεάζουν σε μεγάλο βαθμό την απόδοση.Και εδώ ξανά το l2 έχει την μεγαλύτερη επιρροή.Με τις ακόλουθες τιμές πετύχαμε το βέλτιστο cpi ίσο με 1.137.
+* L1 instruction cache size = 16 κΒ
+* L1 instruction cache associativity = 8
+* L1 data cache size = 128 κΒ
+* L1 data cache associativity = 8
+* L2 cache size = 4 ΜΒ
+* L2 cache associativity = 8
+* cache line size = 64 κΒ
+
+Εδώ βλέπουμε ότι θέλουμε και σχετικά μεγάλη τιμή **L1 data cache**.
+
+--------INSERT RESULTS.TXT------
+
+Ξανά το γράφημα που παρουσιάζουμε είναι μεταξύ των  **l2 cache size** και **cpi**.
+
+-----INSERT GRAPH----
