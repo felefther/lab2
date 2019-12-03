@@ -260,7 +260,7 @@ Eδώ βλέπουμε ότι η μεταβολή του **l2 size** μειών�
 * L2 cache associativity = 8
 * cache line size = 64 κΒ
 
-
+------RESULTS TXT-------
 
 
 
