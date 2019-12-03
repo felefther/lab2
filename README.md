@@ -95,11 +95,11 @@ system.l2.overall_miss_rate::total           0.99972                       # mis
 
 --------NEW LINKS------------
 
-![sim_sec](https://github.com/felefther/lab2/blob/master/sim_sec.png)
-![cpi_graph](https://github.com/felefther/lab2/blob/master/cpi.png)
-![dcache](https://github.com/felefther/lab2/blob/master/dcache.png)
-![icache](https://github.com/felefther/lab2/blob/master/icache.png)
-![l2](https://github.com/felefther/lab2/blob/master/l2.png)
+![sim_sec]()
+![cpi_graph]()
+![dcache]()
+![icache]()
+![l2]()
 
 
 Από τα αποτελέσματα παρατηρούμε καταρχάς ότι σε όλα τα benchmarks το cpi είναι δεκαπλάσιο του χρόνου εκτέλεσης, όπως και πρέπει να ισχύει καθώς **ο χρόνος εκτέλεσης = cpi * αριθμό εντολών / συχνότητα**.Ακόμα βλέπουμε ότι στα benchmarks με υψηλό cpi έχουμε και μεγαλύτερο total miss rate στην dcache και στην l2.Αντίθετα υψηλό total miss rate στην icache έχουμε μόνο στο specmcf.
@@ -143,7 +143,7 @@ system.l2.overall_miss_rate::total           0.99972                       # mis
 
 Παρατηρήσαμε ότι παρόλο που το **cpi** μειώθηκε έχουμε αύξηση του **l2 miss rate**.Οι αλλαγές στα miss rate των icache, dcache είναι αρκετά μικρές.Συμπεραίνουμε ότι στο συγκεκριμένο benchmark χρειάζεται μεγάλη l2, τουλάχιστον 2 MB όπως φαίνεται και στα αποτελέσματα των  δοκιμών.  
 
-----INSERT RESULTS.txt IMAGE----
+
 ~~~
 Benchmarks	system.cpu.cpi	system.cpu.dcache.overall_miss_rate::total	system.cpu.icache.overall_miss_rate::total	system.l2.overall_miss_rate::total
 specbzip_16_4_32_8_64_8_64	1.856737	0.015757	0.000080	0.749181
@@ -170,7 +170,7 @@ specbzip_64_8_128_8_4_8_64	1.553062	0.010152	0.000070	0.376025
 
 
 Από τα παραπάνω φαίνεται και καλύτερα ότι η αύξηση της **l2** οδηγεί σε μείωση του **cpi** και του του **l2 miss rate**.Οι μεταβολές του **ld size** και του **li size** δεν προκαλούν κάποια σημαντική αλλαγή στα αντίστοιχα miss rate.
------INSERT GRAPH----
+
 
 
 Για το benchmark **specblibm** παρατηρήσαμε ότι οι αλλαγές που δοκιμάσαμε στους παράγοντες δεν επηρεάζουν αρκετά το **CPI**.Η καλύτερη τιμή που πήραμε ήταν το 2.58, ενώ στις default τιμές είχαμε 2.62.Ωστόσο φαίνεται πως το μέγεθος της **l2** είναι αυτό που το επηρεάζει περισσότερο.Συγκεκριμένα μειώνοντάς το έχουμε και μικρότερο/καλύτερο cpi.  
@@ -183,7 +183,7 @@ Tα στοιχεία του υποσυστήματος μνήμης για τη 
 * L2 cache associativity = 8
 * cache line size = 64 κΒ
 
-----INSERT RESULTS.txt IMAGE----
+
 ~~~
 Benchmarks	system.cpu.cpi	system.cpu.dcache.overall_miss_rate::total	system.cpu.icache.overall_miss_rate::total	system.l2.overall_miss_rate::total
 speclibm_16_2_64_4_2_4_64	2.629421	0.060971	0.000113	0.999867
@@ -216,7 +216,7 @@ speclibm_128_8_128_8_4_8_64	2.620761	0.060971	0.000084	0.999982
 ![speclibm_l2_size_l2]()
 ![speclibm_ld_size_dcache]()
 ![speclibm_li_size_icache]()
------INSERT GRAPH----
+
 
 Στην περίπτωση του benchmark **specmcf** τα αποτελέσματα είναι από την αρχή πολύ καλά, δηλαδή το **cpi** είναι χαμηλό στο 1.27 και με τις default τιμές.Και σε αυτήν την περίπτωση τα μεγέθη των l1 μένουν χαμηλά και δεν επηρεάζουν σε μεγάλο βαθμό την απόδοση.Και εδώ ξανά το l2 έχει την μεγαλύτερη επιρροή.Με τις ακόλουθες τιμές πετύχαμε το βέλτιστο cpi ίσο με 1.137.
 * L1 instruction cache size = 16 κΒ
@@ -228,7 +228,7 @@ speclibm_128_8_128_8_4_8_64	2.620761	0.060971	0.000084	0.999982
 * cache line size = 64 κΒ
 
 
---------INSERT RESULTS.TXT------
+
 ~~~
 Benchmarks	system.cpu.cpi	system.cpu.dcache.overall_miss_rate::total	system.cpu.icache.overall_miss_rate::total	system.l2.overall_miss_rate::total
 specmcf_16_4_32_8_64_8_64	1.147841	0.002345	0.000019	0.869273
@@ -250,7 +250,6 @@ specmcf_64_8_128_8_4_8_64	1.137717	0.001867	0.000018	0.793378
 Eδώ βλέπουμε ότι η μεταβολή του **l2 size** μειώνει ελάχιστα το **cpi** και το **l2 miss rate**.Επίσης τα **ld miss rate**, **li miss rate** παραμένουν σχεδόν σταθερά παρόλες τις αλλαγές.
 
 
------INSERT GRAPH----
 
 Για το benchmark **spechmmer** μπορούμε να δούμε ότι το cpi δεν μειώνεται αρκετά, οι τιμές του είναι 1.183 με 1.187.Ωστόσο βλέπουμε αισθητές διαφορές στο **l2 total miss rate** με μέγιστη τιμή το 0.547 και ελάχιστη το 0.008, τα οποία φαίνονται και παρακάτω.Το μικρότερο cpi (το οποίο σε αυτήν την περίπτωση ήταν σχεδόν ίδιο παντού) το είχαμε με τις τιμές που ακολουθούν:
 * L1 instruction cache size = 64 κΒ
@@ -261,7 +260,7 @@ Eδώ βλέπουμε ότι η μεταβολή του **l2 size** μειών�
 * L2 cache associativity = 8
 * cache line size = 64 κΒ
 
---------INSERT RESULTS.TXT------
+
 
 
 
@@ -273,7 +272,7 @@ Eδώ βλέπουμε ότι η μεταβολή του **l2 size** μειών�
 Σε αυτήν την περίπτωση η μόνη σημαντική διαφορά που παρατηρήσαμε ήταν μια μικρή πτώση του **l2 miss rate** με την αύξηση του **l2 size**.
 
 
------INSERT GRAPH----
+
 
 Τέλος, για το benchmark **specsjeng** είχαμε από την αρχή πολύ υψηλό **cpi** και παρόλες τις αλλαγές δεν καταφέραμε να δούμε κάποια σημαντική αλλαγή και ήταν στα 7.04.Παρατηρήσαμε ότι μια μείωση του **l2 cache size** αύξησε λίγο το ήδη υψηλό cpi.Σε όλες τις περιπτώσεις το **l2 total miss rate** ήταν πάρα πολύ υψηλό στο 0.9999 και δεν είδαμε κάποια σημαντική πτώση.Τα υπόλοιπα **miss rate** έμειναν και αυτά σταθερά σε όλες τις δοκιμές, αλλά ήταν σε χαμηλά επίπεδα.Ένα σέτ τιμών ήταν:
 * L1 instruction cache size = 32 κΒ
@@ -286,7 +285,7 @@ Eδώ βλέπουμε ότι η μεταβολή του **l2 size** μειών�
 
 
 
---------INSERT RESULTS.TXT------
+
 ~~~
 Benchmarks	system.cpu.cpi	system.cpu.dcache.overall_miss_rate::total	system.cpu.icache.overall_miss_rate::total	system.l2.overall_miss_rate::total
 specsjeng_16_4_32_8_4_8_64	7.039199	0.121831	0.000022	0.999968
@@ -312,7 +311,6 @@ specsjeng_32_8_64_8_4_8_64	7.039165	0.121831	0.000019	0.999984
 Από τα γραφήματα φαίνεται ότι σχεδόν καμία αλλαγή δεν μας έδωσε κάποια σημαντική μείωση.Τα **miss rate** έμειναν παντού σταθερά και η βελτίωση του **cpi** ήταν ελάχιστη.
 
 
------INSERT GRAPH----
 
 
 
